@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
-import { shallowEqual } from "react-redux";
+import { Answer, Container, Item, Question } from "./styles/Accordion";
 const ToggleContext = createContext();
 
 export default function Accordion({ children, props }) {
-  return <div {...props}>{children}</div>;
+  return <Container {...props}>{children}</Container>;
 }
 
 Accordion.Item = function AccordionItem({ children, props }) {
@@ -14,7 +14,7 @@ Accordion.Item = function AccordionItem({ children, props }) {
   };
   return (
     <ToggleContext.Provider value={{ display, toggle }}>
-      <Accordion {...props}>{children}</Accordion>
+      <Item {...props}>{children}</Item>
     </ToggleContext.Provider>
   );
 };
@@ -23,13 +23,13 @@ Accordion.Question = function AccordionQuestion({ children, props }) {
   const { display, toggle } = useContext(ToggleContext);
 
   return (
-    <div {...props} onClick={toggle}>
+    <Question {...props} onClick={toggle}>
       {children} <div>{display ? "<<" : ">>"}</div>
-    </div>
+    </Question>
   );
 };
 
 Accordion.Answer = function AccordionAnswer({ children, props }) {
   const { display } = useContext(ToggleContext);
-  return display && <div {...props}>{children}</div>;
+  return display && <Answer {...props}>{children}</Answer>;
 };
