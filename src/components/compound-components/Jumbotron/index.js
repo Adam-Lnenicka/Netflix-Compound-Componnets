@@ -1,19 +1,19 @@
 import React from "react";
-import { Image, MovieTitle, Container } from "./styles";
+import { Image, MovieTitle, Item, Container } from "./styles";
 
 export default function Jumbotron({ children, props }) {
-  return <div {...props}>{children}</div>;
+  return <Container {...props}>{children}</Container>;
 }
 
 Jumbotron.Container = function JumbotronContainer({ children, props }) {
-  return <div {...props}>{children}</div>;
+  return <Container {...props}>{children}</Container>;
 };
 
 Jumbotron.Item = function JumbotronItem({ children, props, direction }) {
   return (
-    <Container direction={direction} {...props}>
+    <Item direction={direction} {...props}>
       {children}
-    </Container>
+    </Item>
   );
 };
 

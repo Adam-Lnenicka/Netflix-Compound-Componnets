@@ -1,24 +1,25 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Item = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: ${({ direction }) => direction};
   max-width: 1100px;
-  margin: auto;
+  margin: 0rem auto;
   width: 100%;
-
-  @media (max-width: 1000px) {
-    flex-direction: column;
-  }
+  text-align: left;
 `;
 
-export const MovieTitle = styled.h2`
-  color: blue;
-`;
+export const MovieTitle = styled.h2``;
 
 export const Image = styled.img`
-  max-width: 100%;
+  max-width: 330px;
   height: auto;
+`;
+
+export const Container = styled.div`
+  background-color: black;
+  color: white;
+  padding: 3rem;
 `;

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Jumbotron from "./Jumbotron/Jumbotron";
+import { useState } from "react";
 
-const MovieAPI = () => {
+const useMovieAPI = () => {
   const [movies, setMovies] = useState([]);
 
   const loadMovies = async () => {
@@ -17,33 +16,7 @@ const MovieAPI = () => {
     }
   };
 
-  useEffect(() => {
-    loadMovies();
-  }, []);
-
-  return (
-    <div>
-      <Jumbotron>
-        {movies.map((movie, index) => {
-          return (
-            <Jumbotron.Container>
-              s
-              <Jumbotron.Item
-                key={movie.id}
-                // direction={index % 2 === 0 ? "row" : "row-reverse"}
-                direction={"row-reverse"}
-              >
-                <Jumbotron.Title>{movie.title}</Jumbotron.Title>
-                <Jumbotron.Description>{movie.overview}</Jumbotron.Description>
-                <Jumbotron.Image src={movie.poster_path} alt={movie.title} />
-                {index}
-              </Jumbotron.Item>
-            </Jumbotron.Container>
-          );
-        })}
-      </Jumbotron>
-    </div>
-  );
+  return { movies, loadMovies };
 };
 
-export default MovieAPI;
+export default useMovieAPI;
