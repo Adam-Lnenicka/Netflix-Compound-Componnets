@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import MovieAPI from "./components/MovieAPI";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <MovieAPI />
+      <Home />
     </div>
   );
 }
